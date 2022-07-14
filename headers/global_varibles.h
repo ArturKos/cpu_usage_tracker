@@ -1,6 +1,14 @@
 #ifndef GLOBAL_VAR
 #define GLOBAL_VAR
+
 #define QUEUE_SIZE 5
+
+#define READER_WATCHDOG 0
+#define PRINTER_WATCHDOG 1
+#define ANALYZER_WATCHDOG 2
+#define LOGGER_WATCHDOG 3
+
+struct tm watchdog_timer[4];
 
 pthread_t  analyzer_id;
 pthread_t  logger_id;
@@ -9,6 +17,7 @@ pthread_t  reader_id;
 pthread_t  watchdog_id;
 
 pthread_mutex_t lock_x;
+pthread_mutex_t watchdog_timer_mutex;
 unsigned int number_of_cores;
 
 struct cpustat {
