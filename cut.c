@@ -29,6 +29,8 @@ int main()
   {
     printf("\n Error creating threads \n");
     pthread_mutex_destroy(&lock_x);
+    free(queue_cpu);
+    pthread_mutex_destroy(&watchdog_timer_mutex);
     return 1;
   }
   pthread_join(watchdog_id, NULL);
