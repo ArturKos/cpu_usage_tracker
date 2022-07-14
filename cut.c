@@ -4,11 +4,23 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <time.h>
+#include <signal.h>
+#include <string.h>
 #include "headers/global_varibles.h"
 #include "lib/create_threads.c"
 
+void term()
+{
+    sigterm_received = 1;
+}
+
 int main()
 {
+  sigterm_received = 0;
+  struct sigaction action;
+  memset(&action, 0, sizeof(struct sigaction));
+  action.sa_handler = term;
+  sigaction(SIGTERM, &action, NULL);
 
   rear_queue = 0;
   ready_to_print = false;

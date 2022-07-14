@@ -9,8 +9,11 @@ void* watchdog()
     if( (time_now - watchdog_timer[LOGGER_WATCHDOG]) > 2 ||
         (time_now - watchdog_timer[READER_WATCHDOG]) > 2 ||
         (time_now - watchdog_timer[ANALYZER_WATCHDOG]) > 2 ||
-        (time_now - watchdog_timer[PRINTER_WATCHDOG]) > 2  )
+        (time_now - watchdog_timer[PRINTER_WATCHDOG]) > 2  ||
+        (sigterm_received == 1))
         {
+          if(sigterm_received == 1)
+          printf("SIGTERM signal  received. I close all threads, free memory, quit the program.\n");else
           printf("One of the threads has crashed, I close all threads, free memory, quit the program. \n");
           pthread_detach(reader_id);
           pthread_detach(printer_id);
