@@ -9,6 +9,7 @@
 #define LOGGER_WATCHDOG 3
 
 unsigned long watchdog_timer[4];
+volatile sig_atomic_t sigterm_received;
 
 pthread_t  analyzer_id;
 pthread_t  logger_id;
