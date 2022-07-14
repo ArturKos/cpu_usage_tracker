@@ -1,5 +1,5 @@
 void calculate_percent_cpu_usage()
-{ printf("\e[1;1H\e[2J");
+{
 for(unsigned int i = 0; i<number_of_cores; i++)
  {
   unsigned int prev_sum =queue_cpu[i]->t_user+queue_cpu[i]->t_nice+
@@ -24,8 +24,14 @@ for(unsigned int i = 0; i<number_of_cores; i++)
 }
 void* analyzer()
 {
+ time_t     time_now = time(NULL);
+
  for(;;)
   {
+   pthread_mutex_lock(&watchdog_timer_mutex);
+   watchdog_timer[ANALYZER_WATCHDOG] = *localtime(&time_now);
+   pthread_mutex_unlock(&watchdog_timer_mutex);
+
    pthread_mutex_lock(&lock_x);
    if(rear_queue>=2*number_of_cores && !ready_to_print)
     calculate_percent_cpu_usage();
