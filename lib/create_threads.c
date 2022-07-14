@@ -9,7 +9,6 @@
 int create_threads(void)
 {
   int        rc;
-  time_t     time_now = time(NULL);
 
   /* create a new thread that will execute reader */
   rc = pthread_create(&reader_id, NULL, reader, NULL);
@@ -19,7 +18,7 @@ int create_threads(void)
       exit(1);
   }
   pthread_mutex_lock(&watchdog_timer_mutex);
-  watchdog_timer[READER_WATCHDOG] = *localtime(&time_now);
+  watchdog_timer[READER_WATCHDOG] = time(NULL);
   pthread_mutex_unlock(&watchdog_timer_mutex);
 
   printf("\n Created new thread (%lu) for reader \n", reader_id);
@@ -32,7 +31,7 @@ int create_threads(void)
       exit(1);
   }
   pthread_mutex_lock(&watchdog_timer_mutex);
-  watchdog_timer[ANALYZER_WATCHDOG] = *localtime(&time_now);
+  watchdog_timer[ANALYZER_WATCHDOG] = time(NULL);
   pthread_mutex_unlock(&watchdog_timer_mutex);
 
   printf("\n Created new thread (%lu) for analyzer \n", analyzer_id);
@@ -45,7 +44,7 @@ int create_threads(void)
       exit(1);
   }
   pthread_mutex_lock(&watchdog_timer_mutex);
-  watchdog_timer[PRINTER_WATCHDOG] = *localtime(&time_now);
+  watchdog_timer[PRINTER_WATCHDOG] = time(NULL);
   pthread_mutex_unlock(&watchdog_timer_mutex);
   printf("\n Created new thread (%lu) for printer \n", printer_id);
 
@@ -57,7 +56,7 @@ int create_threads(void)
       exit(1);
   }
   pthread_mutex_lock(&watchdog_timer_mutex);
-  watchdog_timer[LOGGER_WATCHDOG] = *localtime(&time_now);
+  watchdog_timer[LOGGER_WATCHDOG] = time(NULL);
   pthread_mutex_unlock(&watchdog_timer_mutex);
   printf("\n Created new thread (%lu) for logger \n", logger_id);
 

@@ -8,7 +8,7 @@
 #define ANALYZER_WATCHDOG 2
 #define LOGGER_WATCHDOG 3
 
-struct tm watchdog_timer[4];
+unsigned long watchdog_timer[4];
 
 pthread_t  analyzer_id;
 pthread_t  logger_id;
