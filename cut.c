@@ -26,7 +26,7 @@ int main()
   rear_queue = 0;
   ready_to_print = false;
   number_of_cores = count_cores();
-  queue_cpu = malloc(QUEUE_SIZE * number_of_cores * sizeof(struct cpustat));
+  queue_cpu = malloc(QUEUE_SIZE * number_of_cores * sizeof(struct cpustat)); /* VLA Variable-length array applied */
 
   if (pthread_mutex_init(&lock_x, NULL) != 0)
   {
