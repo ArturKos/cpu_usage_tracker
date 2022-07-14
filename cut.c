@@ -9,6 +9,7 @@
 #include "headers/global_varibles.h"
 #include "lib/create_threads.c"
 
+
 void term()
 {
     sigterm_received = 1;

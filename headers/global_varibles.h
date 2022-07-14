@@ -34,10 +34,9 @@ struct cpustat {
     unsigned long t_guest;
     unsigned long t_guest_nice;
     unsigned long percent_usage;
-};
+} **queue_cpu;
 
 unsigned int rear_queue;
 bool ready_to_print;
-struct cpustat **queue_cpu;
 
 #endif /* GLOBAL_VAR */
