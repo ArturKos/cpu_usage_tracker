@@ -1,4 +1,4 @@
-void free_memory()
+void free_memory(void)
 {
   free(queue_cpu);
   pthread_mutex_destroy(&watchdog_timer_mutex);

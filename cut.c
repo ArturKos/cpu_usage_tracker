@@ -7,6 +7,7 @@
 #include <signal.h>
 #include <string.h>
 #include "headers/global_varibles.h"
+#include "lib/function_prototypes.h"
 #include "lib/free_memory.c"
 #include "lib/term_signal.c"
 #include "lib/queue_logger.c"

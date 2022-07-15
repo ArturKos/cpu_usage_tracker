@@ -1,4 +1,4 @@
-int init_mutex()
+int init_mutex(void)
 {
   if (pthread_mutex_init(&lock_x, NULL) != 0)
   {

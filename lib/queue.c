@@ -1,7 +1,5 @@
-#ifndef QUEUE_LIB
-#define QUEUE_LIB
 
-void delete_most_older_reads()
+void delete_most_older_reads(void)
 {
   for(unsigned int i=0; i<number_of_cores; i++)
    free(queue_cpu[i]);
@@ -22,5 +20,3 @@ int add_into_queue(struct cpustat *st)
   }
   return 1;
 }
-
-#endif
