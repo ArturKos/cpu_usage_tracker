@@ -6,6 +6,7 @@
 #include <time.h>
 #include <signal.h>
 #include <string.h>
+#include <assert.h>
 #include "headers/global_varibles.h"
 #include "lib/function_prototypes.h"
 #include "lib/free_memory.c"

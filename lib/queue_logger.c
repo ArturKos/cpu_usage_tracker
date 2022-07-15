@@ -1,5 +1,6 @@
 void add_to_logger_queue(int message_number)
 {
+  assert(message_number >= 0);
   pthread_mutex_lock(&logger_mutex);
   if(rear_queue_logger < QUEUE_LOGGER_SIZE)
     logger_queue[rear_queue_logger++] = message_number;

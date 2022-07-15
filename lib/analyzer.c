@@ -24,6 +24,7 @@ for(unsigned long i = 0; i<number_of_cores; i++)
 }
 void* analyzer(void *t)
 {
+ assert(t == NULL);
  for(;;)
   {
    pthread_mutex_lock(&watchdog_timer_mutex);
