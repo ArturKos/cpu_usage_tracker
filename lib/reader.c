@@ -2,7 +2,7 @@
 void skip_lines(FILE *fp, int numlines)
 {
     int cnt = 0;
-    char ch;
+    int ch;
     while((cnt < numlines) && ((ch = getc(fp)) != EOF))
     {
         if (ch == '\n')
@@ -10,14 +10,14 @@ void skip_lines(FILE *fp, int numlines)
     }
     return;
 }
-int count_cores()
+unsigned long count_cores(void)
 {
     FILE *fp = fopen("/proc/stat", "r");
     skip_lines(fp, 1);
-    int number_cores=0;
+    unsigned long number_cores=0;
     struct cpustat *st = malloc(sizeof(struct cpustat));
 
-    while(fscanf(fp, "%s %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld", (st->t_core), &(st->t_user), &(st->t_nice),
+    while(fscanf(fp, "%s %d %d %d %d %d %d %d %d %d %d", (st->t_core), &(st->t_user), &(st->t_nice),
         &(st->t_system), &(st->t_idle), &(st->t_iowait), &(st->t_irq),
         &(st->t_softirq), &(st->t_steal), &(st->t_guest), &(st->t_guest_nice))!=EOF)
         {
@@ -28,14 +28,14 @@ int count_cores()
     fclose(fp);
 	return number_cores;
 }
-void get_stats()
+void get_stats(void)
 {
     FILE *fp = fopen("/proc/stat", "r");
     int lskip = 1;
     skip_lines(fp, lskip);
 
     struct cpustat *st = malloc(sizeof(struct cpustat));
-    while(fscanf(fp, "%s %ld %ld %ld %ld %ld %ld %ld %ld %ld %ld", (st->t_core), &(st->t_user), &(st->t_nice),
+    while(fscanf(fp, "%s %d %d %d %d %d %d %d %d %d %d", (st->t_core), &(st->t_user), &(st->t_nice),
         &(st->t_system), &(st->t_idle), &(st->t_iowait), &(st->t_irq),
         &(st->t_softirq), &(st->t_steal), &(st->t_guest), &(st->t_guest_nice))!=EOF)
         {
@@ -51,7 +51,7 @@ void get_stats()
 	return;
 }
 
-void* reader()
+void* reader(void *t)
 {
 
   for(;;)

@@ -1,5 +1,6 @@
-void* logger()
+void* logger(void *t)
 {
+
   for(;;)
   {
    pthread_mutex_lock(&watchdog_timer_mutex);

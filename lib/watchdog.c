@@ -1,8 +1,9 @@
-void* watchdog()
+void* watchdog(void *t)
 {
+
   for(;;)
   {
-    unsigned long     time_now = time(NULL);
+    long     time_now = time(NULL);
 
     pthread_mutex_lock(&watchdog_timer_mutex);
 
@@ -15,7 +16,7 @@ void* watchdog()
           if(sigterm_received == 1)
            {
             add_to_logger_queue(15);
-            printf("SIGTERM signal  received. I close all threads, free memory, quit the program.\n");
+            printf("SIGTERM signal  received. I close all threads, free memory, quit the program. Signum %d\n", signal_number);
            }else
            {
             add_to_logger_queue(16);
@@ -28,7 +29,7 @@ void* watchdog()
           break;
         }
     pthread_mutex_unlock(&watchdog_timer_mutex);
-    sleep(0.5);
+    sleep(1);
   }
   pthread_exit(NULL);
 }

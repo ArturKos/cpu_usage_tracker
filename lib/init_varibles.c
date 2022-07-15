@@ -1,4 +1,4 @@
-void init_varibles()
+void init_varibles(void)
 {
   sigterm_received = 0;
   struct sigaction action;

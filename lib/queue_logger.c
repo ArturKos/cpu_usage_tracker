@@ -23,11 +23,11 @@ int flush_logger_queue_to_file_without_mutex()
    fprintf(logger_file, "%s", logger_messages[logger_queue[i]]);
 
   rear_queue_logger = 0;
-  
+
   fclose(logger_file);
  return 0;
 }
-int flush_logger_queue_to_file()
+int flush_logger_queue_to_file(void)
 {
   if(rear_queue_logger == 0) return 0; //nothing to write
   pthread_mutex_lock(&logger_mutex);
