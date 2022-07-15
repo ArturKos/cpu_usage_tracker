@@ -13,8 +13,14 @@ void* watchdog()
         (sigterm_received == 1))
         {
           if(sigterm_received == 1)
-          printf("SIGTERM signal  received. I close all threads, free memory, quit the program.\n");else
-          printf("One of the threads has crashed, I close all threads, free memory, quit the program. \n");
+           {
+            add_to_logger_queue(15);
+            printf("SIGTERM signal  received. I close all threads, free memory, quit the program.\n");
+           }else
+           {
+            add_to_logger_queue(16);
+            printf("One of the threads has crashed, I close all threads, free memory, quit the program. \n");
+           }
           pthread_detach(reader_id);
           pthread_detach(printer_id);
           pthread_detach(analyzer_id);
