@@ -60,13 +60,13 @@ static char **logger_messages = (char *[]) {"Mutex init has failed - lock_x\n",
                                             "ERROR: pthread_create for analyzer\n",
                                             "Created new thread for analyzer \n",
                                             "ERROR: pthread_create for printer\n",
-                                            "Created new thread or printer \n",
+                                            "Created new thread for printer \n",
                                             "ERROR: pthread_create for logger\n",
                                             "Created new thread for logger \n",
                                             "ERROR: pthread_create for watchdog\n",
                                             "Created new thread for watchdog \n",
-                                            "SIGTERM signal  received. I close all threads, free memory, quit the program.\n",
-                                            "One of the threads has crashed, I close all threads, free memory, quit the program. \n"};
+                                            "SIGTERM signal  received. I'll close all threads, free memory, quit the program.\n",
+                                            "One of the threads has crashed, I'll close all threads, free memory, quit the program. \n"};
 
 
 
