@@ -18,4 +18,5 @@ void init_varibles(void)
   assert(rear_queue_logger == 0);
   assert(ready_to_print == false);
   assert(number_of_cores > 0);
+  assert(queue_cpu!=NULL);
 }
