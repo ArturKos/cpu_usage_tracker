@@ -12,4 +12,10 @@ void init_varibles(void)
   number_of_cores = count_cores();
   queue_cpu = malloc(QUEUE_SIZE * number_of_cores * sizeof(struct cpustat)); /* VLA Variable-length array applied */
 
+  //testing values
+  assert(sigterm_received == 0);
+  assert(rear_queue == 0);
+  assert(rear_queue_logger == 0);
+  assert(ready_to_print == false);
+  assert(number_of_cores > 0);
 }
