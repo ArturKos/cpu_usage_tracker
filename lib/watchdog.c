@@ -6,6 +6,7 @@ void* watchdog(void *t)
     long     time_now = time(NULL);
 
     pthread_mutex_lock(&watchdog_timer_mutex);
+    add_to_logger_queue(21);
 
     if( (time_now - watchdog_timer[LOGGER_WATCHDOG]) > 2 ||
     (time_now - watchdog_timer[READER_WATCHDOG]) > 2 ||
@@ -29,7 +30,7 @@ void* watchdog(void *t)
       break;
     }
     pthread_mutex_unlock(&watchdog_timer_mutex);
-    sleep(1);
+    usleep(SLEEP_TIME*1000);
   }
   pthread_exit(NULL);
 }

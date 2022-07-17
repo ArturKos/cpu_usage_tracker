@@ -9,6 +9,8 @@
 #define ANALYZER_WATCHDOG 2 //needed for watchdog array
 #define LOGGER_WATCHDOG 3 //needed for watchdog array
 
+#define SLEEP_TIME 200 //milliseconds
+
 //watchdog varibles
 static long watchdog_timer[4];
 static volatile sig_atomic_t sigterm_received;
@@ -66,7 +68,12 @@ static char **logger_messages = (char *[]) {"Mutex init has failed - lock_x\n",
                                             "ERROR: pthread_create for watchdog\n",
                                             "Created new thread for watchdog \n",
                                             "SIGTERM signal  received. I'll close all threads, free memory, quit the program.\n",
-                                            "One of the threads has crashed, I'll close all threads, free memory, quit the program. \n"};
+                                            "One of the threads has crashed, I'll close all threads, free memory, quit the program. \n",
+                                            "Entered to reader thread\n",
+                                            "Entered to printer thread\n",
+                                            "Entered to analyzer thread\n",
+                                            "Entered to logger thread\n",
+                                            "Entered to wathdog thread\n"};
 
 
 
