@@ -50,7 +50,7 @@ Tested on Linux Ubuntu(Intel i7 CPU)
 
 ![2022-07-15_22-33](https://user-images.githubusercontent.com/17749811/179307405-b3ff8575-b9fc-41e9-b042-23cc0b093cd9.png)
 
-Tested on Linux Lubuntu(Intel Atom N550)
+Tested on Linux Lubuntu(Intel Atom N550 CPU)
 
 ![2022-07-16_16-04](https://user-images.githubusercontent.com/17749811/179359930-5a901611-040d-4239-93f9-6d1480abef0e.png)
 
@@ -67,6 +67,22 @@ Tested on Rasbian (Raspberry Pi 4 4GB) - have to compile on rasbian
 ![2022-07-16_16-12](https://user-images.githubusercontent.com/17749811/179360111-0121f732-fede-49f6-8f47-25a560da1df5.png)
 
 ![2022-07-16_16-20](https://user-images.githubusercontent.com/17749811/179360129-baaf30f6-71a9-447d-84fd-ad59c72e3b20.png)
+
+Tested on Fedora Linux (Virtual Machnie KVM)
+
+![2022-07-17_13-08](https://user-images.githubusercontent.com/17749811/179395639-a6f04e00-adba-4d95-954e-1c3ac9d72158.png)
+
+![2022-07-17_13-09](https://user-images.githubusercontent.com/17749811/179395647-89db86f8-afe4-4d8c-8986-be84b6052b6e.png)
+
+Tested on Debian Linux (Virtual Machnie KVM)
+
+![2022-07-17_13-43](https://user-images.githubusercontent.com/17749811/179396609-db140c37-fe22-42ee-a830-607b36574ada.png)
+
+![2022-07-17_13-44](https://user-images.githubusercontent.com/17749811/179396618-151d8958-6983-43a2-9595-308c6904d91f.png)
+
+
+
+
 
 
 
