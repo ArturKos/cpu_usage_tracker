@@ -1,16 +1,6 @@
-void print_stats(struct cpustat *st)
-{
-  printf("%s: %u %u %u %u %u %u %u\n", (st->t_core), (st->t_user), (st->t_nice),
-  (st->t_system), (st->t_idle), (st->t_iowait), (st->t_irq),
-  (st->t_softirq));
-}
-void print_cores_percent_usage(void)
-{
-  system("clear");
-  for(unsigned int i=0; i<number_of_cores; i++)
-  printf("%s: %u %%\n", queue_cpu[i]->t_core, queue_cpu[i]->percent_usage);
+#include "print_stats.c"
+#include "print_cores_percent_usage.c"
 
-}
 void* printer(void *t)
 {
   assert(t == NULL);
@@ -19,7 +9,7 @@ void* printer(void *t)
     pthread_mutex_lock(&watchdog_timer_mutex);
     watchdog_timer[PRINTER_WATCHDOG] = time(NULL);
     pthread_mutex_unlock(&watchdog_timer_mutex);
-
+    add_to_logger_queue(18);
     pthread_mutex_lock(&lock_x);
     if(ready_to_print)
     {
