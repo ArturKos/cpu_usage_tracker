@@ -24,4 +24,8 @@ extern void init_varibles(void);
 extern int init_mutex(void);
 extern void skip_lines(FILE *fp, int numlines);
 
+//testing functions
+extern void init_varibles_test(void);
+extern void free_memory_test(void);
+extern void create_thread_test(void);
 #endif
