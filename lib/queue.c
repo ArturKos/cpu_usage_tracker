@@ -2,9 +2,9 @@
 void delete_most_older_reads(void)
 {
   for(unsigned int i=0; i<number_of_cores; i++)
-   free(queue_cpu[i]);
+  free(queue_cpu[i]);
   for(unsigned int i=0; i<(QUEUE_SIZE * number_of_cores)-number_of_cores; i++)
-   queue_cpu[i] = queue_cpu[i+number_of_cores];
+  queue_cpu[i] = queue_cpu[i+number_of_cores];
   rear_queue-=number_of_cores;
 }
 int add_into_queue(struct cpustat *st)
@@ -12,7 +12,7 @@ int add_into_queue(struct cpustat *st)
   assert(st != NULL);
   if(rear_queue<QUEUE_SIZE * number_of_cores)
   {
-      queue_cpu[rear_queue++] = st;
+    queue_cpu[rear_queue++] = st;
     return 0;
   } else if(ready_to_print == false)
   {
