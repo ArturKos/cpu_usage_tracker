@@ -8,6 +8,7 @@
 #include <string.h>
 #include <assert.h>
 #include "headers/global_varibles.h"
+#include "headers/function_prototypes.h"
 #include "lib/skip_lines.c"
 #include "lib/count_cores.c"
 #include "lib/free_memory.c"
