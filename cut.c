@@ -21,16 +21,16 @@ int main()
 {
   init_varibles();
   if(init_mutex() == 1)
-   return 1;
+  return 1;
   if (create_threads()!=0)
   {
-      printf("\n Error creating threads \n");
-      pthread_mutex_destroy(&lock_x);
-      free(queue_cpu);
-      pthread_mutex_destroy(&watchdog_timer_mutex);
-      add_to_logger_queue(3);
-      flush_logger_queue_to_file();
-      pthread_mutex_destroy(&logger_mutex);
+    printf("\n Error creating threads \n");
+    pthread_mutex_destroy(&lock_x);
+    free(queue_cpu);
+    pthread_mutex_destroy(&watchdog_timer_mutex);
+    add_to_logger_queue(3);
+    flush_logger_queue_to_file();
+    pthread_mutex_destroy(&logger_mutex);
     return 1;
   }
 
