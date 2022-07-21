@@ -9,7 +9,7 @@ void delete_most_older_reads(void)
 }
 int add_into_queue(struct cpustat *st)
 {
-  assert(st != NULL);
+  if(st == NULL) return 1;
   if(rear_queue<QUEUE_SIZE * number_of_cores)
   {
     queue_cpu[rear_queue++] = st;

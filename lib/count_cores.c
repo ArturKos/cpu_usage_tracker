@@ -1,7 +1,7 @@
 unsigned long count_cores(void)
 {
   FILE *fp = fopen("/proc/stat", "r");
-  assert(fp != NULL); //testing ifopen function dont't fail
+  if(fp == NULL) return 0;
   skip_lines(fp, 1);
   unsigned long number_cores=0;
   struct cpustat *st = malloc(sizeof(struct cpustat));

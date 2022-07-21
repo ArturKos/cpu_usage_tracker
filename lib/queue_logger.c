@@ -1,10 +1,10 @@
 void add_to_logger_queue(int message_number)
 {
-  assert(message_number >= 0);
+  if(rear_queue_logger < QUEUE_LOGGER_SIZE){
   pthread_mutex_lock(&logger_mutex);
-  if(rear_queue_logger < QUEUE_LOGGER_SIZE)
   logger_queue[rear_queue_logger++] = message_number;
   pthread_mutex_unlock(&logger_mutex);
+  }
 }
 void add_to_logger_queue_without_mutex(int message_number)
 {
@@ -30,7 +30,7 @@ int flush_logger_queue_to_file_without_mutex()
 }
 int flush_logger_queue_to_file(void)
 {
-  if(rear_queue_logger == 0) return 0; //nothing to write
+  if(rear_queue_logger == 0) return 1; //nothing to write
   pthread_mutex_lock(&logger_mutex);
 
   FILE* logger_file;

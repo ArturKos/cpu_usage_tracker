@@ -1,7 +1,7 @@
 void get_stats(void)
 {
   FILE *fp = fopen("/proc/stat", "r");
-  assert(fp != NULL); //testing ifopen function dont't fail
+  if(fp == NULL) return; //testing ifopen function dont't fail
   int lskip = 1;
   skip_lines(fp, lskip);
 
