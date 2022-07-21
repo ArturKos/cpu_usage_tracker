@@ -6,7 +6,6 @@
 #include <time.h>
 #include <signal.h>
 #include <string.h>
-#include <assert.h>
 #include "headers/global_varibles.h"
 #include "headers/function_prototypes.h"
 #include "lib/skip_lines.c"
@@ -17,12 +16,12 @@
 #include "lib/create_threads.c"
 #include "lib/init_varibles.c"
 #include "lib/init_mutex.c"
-#include "lib/testing.c"
+
 
 int main()
 {
   init_varibles();
-  init_varibles_test();
+  if(queue_cpu == NULL) return 1; 
   if(init_mutex() == 1)
   return 1;
   if (create_threads()!=0)
@@ -35,9 +34,8 @@ int main()
     pthread_mutex_destroy(&logger_mutex);
     return 1;
   }
-  create_thread_test();
   free_memory();
-  free_memory_test();
+
   add_to_logger_queue_without_mutex(4);
   flush_logger_queue_to_file_without_mutex();
 
