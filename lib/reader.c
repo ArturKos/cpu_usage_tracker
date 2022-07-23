@@ -4,6 +4,7 @@ void* reader(void *t)
 {
   for(;;)
   {
+    if(t!=NULL) return NULL;
     pthread_mutex_lock(&watchdog_timer_mutex);
     watchdog_timer[READER_WATCHDOG] = time(NULL);
     pthread_mutex_unlock(&watchdog_timer_mutex);
@@ -12,7 +13,6 @@ void* reader(void *t)
     get_stats();
     pthread_mutex_unlock(&lock_x);
     usleep(SLEEP_TIME*1000);
-    //sleep(1);
   }
   pthread_exit(NULL);
 }

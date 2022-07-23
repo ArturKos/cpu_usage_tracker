@@ -1,5 +1,6 @@
 void* watchdog(void *t)
 {
+  if(t!=NULL) return NULL;
   for(;;)
   {
     long     time_now = time(NULL);

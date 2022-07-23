@@ -21,7 +21,7 @@
 int main()
 {
   init_varibles();
-  if(queue_cpu == NULL) return 1; 
+  if(queue_cpu == NULL) return 1;
   if(init_mutex() == 1)
   return 1;
   if (create_threads()!=0)
