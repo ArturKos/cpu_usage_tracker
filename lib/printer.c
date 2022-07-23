@@ -3,7 +3,7 @@
 
 void* printer(void *t)
 {
-
+  if(t!=NULL) return NULL;
   for(;;)
   {
     pthread_mutex_lock(&watchdog_timer_mutex);
