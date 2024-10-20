@@ -1,3 +1,5 @@
+A console-based program for monitoring the usage of individual CPU cores. It reads CPU usage data directly from system files (/proc/stat), providing detailed information about the activity of each core. The program is written in C++ and is multithreaded, with each CPU core being monitored in a separate thread, allowing real-time data processing. Synchronization between threads is managed using mutexes. Basic unit tests for some functions have been designed to ensure the program's correctness. It has been tested on various Linux distributions, including Ubuntu, Lubuntu, Debian, Raspbian, and Fedora.
+
 # cpu_usage_tracker
 
 Builded project for valgrind 
