@@ -1,0 +1,12 @@
+# Build artifacts
+build/
+*.o
+*.a
+*.so
+*.out
+*.exe
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
